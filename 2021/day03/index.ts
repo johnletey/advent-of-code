@@ -8,11 +8,16 @@ const input = file.split("\n");
 
 // Logic for Part One.
 const partOne = (input: string[]): number => {
-  let gammaRate = "", epsilonRate = "";
+  let gammaRate = "",
+    epsilonRate = "";
 
   for (let i = 0; i < input[0].length; i++) {
-    const zeros = input.map((item) => +item[i]).filter((item) => item === 0).length;
-    const ones = input.map((item) => +item[i]).filter((item) => item === 1).length;
+    const zeros = input
+      .map((item) => +item[i])
+      .filter((item) => item === 0).length;
+    const ones = input
+      .map((item) => +item[i])
+      .filter((item) => item === 1).length;
 
     gammaRate = gammaRate.concat(zeros > ones ? "0" : "1");
     epsilonRate = epsilonRate.concat(zeros > ones ? "1" : "0");
@@ -27,7 +32,7 @@ const partOne = (input: string[]): number => {
 const partTwo = (input: string[]): number => {
   let vals: string[] = input;
   let i = 0;
-  
+
   // Determine oxygen generator rating.
   while (vals.length > 1) {
     const digits = vals.map((item) => +item[i]);
@@ -42,7 +47,7 @@ const partTwo = (input: string[]): number => {
 
     i++;
   }
-  
+
   const oxygenGeneratorRating = parseInt(vals[0], 2);
 
   // Reset values.
@@ -63,7 +68,7 @@ const partTwo = (input: string[]): number => {
 
     i++;
   }
-  
+
   const c02ScrubberRating = parseInt(vals[0], 2);
 
   // Return.
